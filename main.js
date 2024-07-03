@@ -32,13 +32,13 @@ document.querySelector(".weather-group").addEventListener("click", (e) => {
 });
 
 //local time
+setInterval(function () {
+  let timeLocal = new Date();
+  document.querySelector("span[data-time=hours]").textContent = timeLocal.getHours().toString().padStart(2, "0");
+  document.querySelector("span[data-time=minutes]").textContent = timeLocal.getMinutes().toString().padStart(2, "0");
+  document.querySelector("span[data-time=seconds]").textContent = timeLocal.getSeconds().toString().padStart(2, "0");
+}, 1000);
 
-let timeHour = new Date().getHours();
-let timeMinute = new Date().getMinutes();
-let timeSecond = new Date().getSeconds();
-document.querySelector("span[data-time=hours]").innerHTML = `${timeHour}`;
-document.querySelector("span[data-time=minutes]").innerHTML = `${timeMinute}`;
-document.querySelector("span[data-time=seconds]").innerHTML = `${timeSecond}`;
 
 new Date();
 console.log(new Date());
