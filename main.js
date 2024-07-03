@@ -30,3 +30,15 @@ document.querySelector(".weather-group").addEventListener("click", (e) => {
   }
  console.log(e.target.id);
 });
+
+//local time
+
+let timeHour = new Date().getHours();
+let timeMinute = new Date().getMinutes();
+let timeSecond = new Date().getSeconds();
+document.querySelector("span[data-time=hours]").innerHTML = `${timeHour}`;
+document.querySelector("span[data-time=minutes]").innerHTML = `${timeMinute}`;
+document.querySelector("span[data-time=seconds]").innerHTML = `${timeSecond}`;
+
+new Date();
+console.log(new Date());
