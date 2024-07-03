@@ -40,5 +40,24 @@ setInterval(function () {
 }, 1000);
 
 
-new Date();
-console.log(new Date());
+//gallery section
+const galleryImages = [ 
+  { src: "./assets/gallery/image1.jpg", alt: "Thumbnail Image 1" },
+  { src: "./assets/gallery/image2.jpg", alt: "Thumbnail Image 2" },
+  { src: "./assets/gallery/image3.jpg", alt: "Thumbnail Image 3" },
+];
+let mainImage = document.querySelector("#gallery > img");
+let thumbnails = document.querySelector("#gallery .thumbnails");
+mainImage.src = galleryImages[0].src;
+mainImage.alt = galleryImages[0].alt;
+
+galleryImages.forEach((image, index) => {
+  let img = document.createElement("img");
+  img.src = image.src;
+  img.alt = image.alt;
+  img.dataset.arrayIndex = index;
+  img.dataset.src = false;
+  thumbnails.appendChild(img);
+  console.log(img);
+});
+
