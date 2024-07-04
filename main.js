@@ -56,8 +56,22 @@ galleryImages.forEach((image, index) => {
   img.src = image.src;
   img.alt = image.alt;
   img.dataset.arrayIndex = index;
-  img.dataset.src = false;
+  // going select the first image, in this case the index is 0
+  img.dataset.selected = index === 0 ? true : false;
+
+  img.addEventListener("click", (e) => {
+    let selectedIndex = e.target.dataset.arrayIndex;
+    let selectedImage = galleryImages[selectedIndex];
+    mainImage.src = selectedImage.src;
+    mainImage.alt = selectedImage.alt;
+
+    thumbnails.querySelectorAll("img").forEach(function(img){
+      img.dataset.selected = false;
+    });
+    e.target.dataset.selected = true;
+
+  });
   thumbnails.appendChild(img);
-  console.log(img);
+
 });
 
