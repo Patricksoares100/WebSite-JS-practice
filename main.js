@@ -152,6 +152,21 @@ function productsHandler() {
 
   // run a loop trough the products array and create an html element (".products-area") for each product
   products.forEach(function (product, index) {
+
+    let totalProducts = products.length;
+    document.querySelector(".products-filter label[for=all] span.product-amount").textContent = totalProducts;
+
+    let freeProducts = products.filter(function (product) {
+      return !product.price || product.price === 0;
+    });
+    let totalFreeProducts = freeProducts.length;
+    document.querySelector(".products-filter label[for=free] span.product-amount").textContent = totalFreeProducts;
+    let paidProducts = products.filter(function (product) {
+      return product.price > 0;
+    });
+    let totalPaidProducts = paidProducts.length;
+    document.querySelector(".products-filter label[for=paid] span.product-amount").textContent = totalPaidProducts;
+
     // create the html element for the individual product
     let productElm = document.createElement("div");
     productElm.classList.add("product-item");
