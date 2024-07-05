@@ -1,3 +1,7 @@
+
+const weatherAPIKey = "d9b9e4b6a98f4ee3b25f3f5ad4fd247e"
+const weatherAPIURL = `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=${weatherAPIKey}&units=metric`
+
 //gallery section
 const galleryImages = [
   { src: "./assets/gallery/image1.jpg", alt: "Thumbnail Image 1" },
@@ -69,33 +73,8 @@ function greetingHandler() {
   } else {
     greetingText = "Welcome!";
   }
-}
-
-//temperature Handler
-function temperaturHandler() {
-  let greetingText;
-  const weatherCondition = "Sunny";
-  const userLocation = "Lisbon";
-  let temperature = 25;
-  function celciusToFahrenheit(temperature) {
-    return (temperature * 9) / 5 + 32;
-  }
-  let celsiusText = `${weatherCondition} in ${userLocation} with a temperature of ${temperature}°C`;
-  let fahrText = `${weatherCondition} in ${userLocation} with a temperature of ${celciusToFahrenheit(
-    temperature
-  ).toFixed(1)}°F`;
 
   document.querySelector("#greeting").innerHTML = greetingText;
-  document.querySelector("p#weather").innerHTML = celsiusText;
-
-  document.querySelector(".weather-group").addEventListener("click", (e) => {
-    if (e.target.id === "celsius") {
-      document.querySelector("p#weather").innerHTML = celsiusText;
-    } else if (e.target.id === "fahr") {
-      document.querySelector("p#weather").innerHTML = fahrText;
-    }
-    console.log(e.target.id);
-  });
 }
 
 //local time
@@ -147,11 +126,10 @@ function galleryHandler() {
   });
 }
 
-function productsHandler() {
+function selectProductHandler(productList) {
   let productSection = document.querySelector(".products-area");
-
-  // run a loop trough the products array and create an html element (".products-area") for each product
-  products.forEach(function (product, index) {
+  productSection.textContent = "";
+  productList.forEach(function (product, index) {
 
     let totalProducts = products.length;
     document.querySelector(".products-filter label[for=all] span.product-amount").textContent = totalProducts;
@@ -211,19 +189,77 @@ function productsHandler() {
   });
 }
 
-/* <div class="product-item">
-<img src="./assets/products/img6.png" alt="AstroFiction">
-<div class="product-details">
-   <h3 class="product-title">AstroFiction</h3>
-   <p class="product-author">John Doe</p>
-   <p class="price-title">Price</p>
-   <p class="product-price">$ 49.90</p>
-</div> */
+// select the products
+function productsHandler() {
+
+  let freeProducts = products.filter(function (product) {
+    return !product.price || product.price === 0;
+  });
+
+  let paidProducts = products.filter(function (product) {
+    return product.price > 0;
+  });
+
+  selectProductHandler(paidProducts);
+
+  let productsFilter = document.querySelector(".products-filter");
+  productsFilter.addEventListener("click", function (e) {
+    let filter = e.target.id;
+    if (filter === "all") {
+      
+      selectProductHandler(products);
+    } else if (filter === "free") {
+      selectProductHandler(freeProducts);
+    } else if (filter === "paid") {
+      selectProductHandler(paidProducts);
+    }
+  });
+}
+
+// footer section
+function footerHandler() {
+  let currentYear = new Date().getFullYear();
+  document.querySelector("footer").textContent = `© ${currentYear} All Rights Reserved`;
+}
+
+//location Handler
+function weatherHandler() {
+navigator.geolocation.getCurrentPosition( position => {
+  let latitute = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let weatherAPIURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitute}&lon=${longitude}&appid=${weatherAPIKey}&units=metric`;
+  fetch(weatherAPIURL)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    const weatherCondition = data.weather[0].description;
+    const userLocation = data.name;
+    let temperature = data.main.temp.toFixed(1);
+
+    function celciusToFahrenheit(temperature) {
+      return (temperature * 9) / 5 + 32;
+    }
+    let celsiusText = `${weatherCondition} in ${userLocation} with a temperature of ${temperature}°C`;
+    let fahrText = `${weatherCondition} in ${userLocation} with a temperature of ${celciusToFahrenheit(
+      temperature
+    ).toFixed(1)}°F`;
+    document.querySelector("p#weather").innerHTML = celsiusText;
+    document.querySelector(".weather-group").addEventListener("click", (e) => {
+      if (e.target.id === "celsius") {
+        document.querySelector("p#weather").innerHTML = celsiusText;
+      } else if (e.target.id === "fahr") {
+        document.querySelector("p#weather").innerHTML = fahrText;
+      }
+    });
+  });
+});
+}
 
 // Page load
 galleryHandler();
-temperaturHandler();
 sideHandler();
 greetingHandler();
 timeHandler();
 productsHandler();
+footerHandler();
+weatherHandler();
