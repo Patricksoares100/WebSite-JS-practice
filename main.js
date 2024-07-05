@@ -11,28 +11,28 @@ const galleryImages = [
 
 const products = [
   {
-    title: "AstroFiction",
-    author: "John Doe",
+    title: "QA Tester",
+    author: "Pedro",
     price: 49.9,
-    image: "./assets/products/img6.png",
+    image: "./assets/products/image1.png",
   },
   {
-    title: "Space Odissey",
-    author: "Marie Anne",
-    price: 35,
-    image: "./assets/products/img1.png",
+    title: "Médica",
+    author: "Maria",
+    price: 55,
+    image: "./assets/products/image3.png",
   },
   {
-    title: "Doomed City",
-    author: "Jason Cobert",
-    price: 0,
-    image: "./assets/products/img2.png",
+    title: "Carpinteiro",
+    author: "André",
+    price: 20,
+    image: "./assets/products/image2.png",
   },
   {
-    title: "Black Dog",
-    author: "John Doe",
-    price: 85.35,
-    image: "./assets/products/img3.png",
+    title: "Farmaceutico",
+    author: "António",
+    price: 25,
+    image: "./assets/products/image4.png",
   },
   {
     title: "My Little Robot",
@@ -43,7 +43,7 @@ const products = [
   {
     title: "Garden Girl",
     author: "Ankit Patel",
-    price: 45,
+    price: 0,
     image: "./assets/products/img4.png",
   },
 ];
