@@ -3,6 +3,7 @@
 ## Work In progress...  :man_mechanic:
 ## Description
 This web application provides weather information based on user location, an interactive image gallery, a dynamic product list with filters, a side menu, personalized greetings, real-time local time display, and a current year footer update.
+
 ![image](https://github.com/Patricksoares100/WebSite-JS-practice/assets/114529771/423af223-45e3-4f09-b94f-effdb5474d23)
 
 ## Features
