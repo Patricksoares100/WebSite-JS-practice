@@ -262,6 +262,44 @@ main .gallery-section .thumbnails {
   justify-content: center;
   align-items: center;
 }
+
+#gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; 
+}
+
+#gallery > img {
+  width: 1000px; 
+  height: 400px; 
+  object-fit: cover; 
+  object-position: center; 
+  margin-bottom: 20px; 
+}
+
+#gallery .thumbnails {
+  display: flex;
+  gap: 10px; 
+  justify-content: center; 
+}
+
+#gallery .thumbnails img {
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover; 
+  object-position: center; 
+  cursor: pointer; 
+  border: 2px solid transparent; 
+}
+
+#gallery .thumbnails img[data-selected="true"] {
+  border-color: blue; 
+}
+
+
+
 main .gallery-section .thumbnails img {
   width: 75px;
   height: 75px;
@@ -393,6 +431,17 @@ main
   font-size: 22px;
   line-height: 31px;
 }
+
+.product-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 31px;
+  text-align: center;
+  text-justify: inter-word; 
+  display: block; 
+  color: #f8f8f880;
+}
 main
   .products-section
   .products-area
@@ -404,6 +453,16 @@ main
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
+  line-height: 22px;
+
+}
+
+.product-author {
+  margin-top: 5px;
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
   line-height: 22px;
 }
 main
