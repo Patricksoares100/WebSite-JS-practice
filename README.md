@@ -32,4 +32,4 @@ This web application provides weather information based on user location, an int
 - **Clock**: Updates and displays the current local time.
 
 
-![image](https://github.com/Patricksoares100/WebSite-JS-practice/assets/114529771/6d0bc005-eba0-4f68-bbc6-fcccb20cf5e1)
+![image](https://github.com/user-attachments/assets/a32ab014-443c-472f-a900-2badcfe41e7e)
