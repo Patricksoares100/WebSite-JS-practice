@@ -18,6 +18,7 @@
     <header>
       <nav class="container">
         <div class="nav-left-side">
+         
           <svg
             width="17"
             height="26"
@@ -35,7 +36,10 @@
           </svg>
           <a href="/">Javascript Practice</a>
         </div>
-
+        <div class="search-bar">
+          <input id="search" type="search" placeholder=" Start typing to search..." />
+          <button id="btnSearch">Search</button>
+        </div>
         <button id="open-nav-menu">
           <svg
             width="24"
@@ -44,7 +48,7 @@
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
+            <path 
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M3 12C3 11.5858 3.33579 11.25 3.75 11.25H20.25C20.6642 11.25 21 11.5858 21 12C21 12.4142 20.6642 12.75 20.25 12.75H3.75C3.33579 12.75 3 12.4142 3 12Z"
@@ -173,27 +177,29 @@
         <div class="thumbnails">
         </div>
       </section>
-
+      <section id="search-results" class="search-results">
+       
+      </section>
       <section id="products" class="container products-section">
         <div class="products-filter">
-          <input type="radio" checked="true" id="all" name="products" />
-          <label for="all">
-            All
+          <input type="radio" checked="true" id="USA" name="products" />
+          <label for="USA">
+            USA
             <span class="product-amount">3</span>
           </label>
-          <input type="radio" id="paid" name="products" />
-          <label for="paid">
-            Paid
+          <input type="radio" id="PT" name="products" />
+          <label for="PT">
+            PT
             <span class="product-amount">2</span>
           </label>
-          <input type="radio" id="free" name="products" />
-          <label for="free">
-            Free
+          <input type="radio" id="UK" name="products" />
+          <label for="UK">
+            UK
             <span class="product-amount">1</span>
           </label>
-
           <span class="glider"></span>
         </div>
+        
 
         <div class="products-area">
           

@@ -12,6 +12,36 @@ html {
   font-family: "Work Sans", sans-serif;
   scroll-behavior: smooth;
 }
+
+#btnSearch {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#btnSearch:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+#btnSearch:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5);
+}
+
+#btnSearch:disabled {
+  background-color: #c0c0c0;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
 *,
 *:before,
 *:after {
@@ -430,6 +460,25 @@ main
   font-weight: 600;
   font-size: 22px;
   line-height: 31px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+.search-bar input {
+  width: 50%;
+  min-width: 300px;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 16px;
+  border: 0px;
+  outline: none;
+}
+.search-bar [list]::-webkit-list-button,
+.search-bar [list]::-webkit-calendar-picker-indicator {
+  display: none !important;
 }
 
 .product-title {
